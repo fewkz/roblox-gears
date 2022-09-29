@@ -1,0 +1,10 @@
+id: 221173389
+created: 2015-02-27T20:30:45.553Z
+updated: 2015-03-01T18:30:55.047Z
+name: Exploding Arrow Crimson Crossbow
+description: >-
+  This crimson crossbow fires an arrow that sticks to the first thing it hits
+  and explodes after about 2 seconds. The explosion deals between 10 and 110
+  damage based on how long the arrow was flying through the air.
+tags:
+  - Onsale
