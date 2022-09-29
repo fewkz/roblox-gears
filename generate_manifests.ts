@@ -23,9 +23,8 @@ emptyDirSync("gears");
 async function processGear(gear: Gear) {
   const hash = hashId(gear.id);
   const snakedName = snakeCase(gear.name).replace("_s_", "s_");
-  const root = `gears/${snakedName}_${hash}`;
-  // const firstLetter = snakedName.substring(0, 1);
-  // const root = `gears/${firstLetter}/${snakedName}_${hash}`;
+  const firstLetter = snakedName.substring(0, 1);
+  const root = `gears/${firstLetter}/${snakedName}_${hash}`;
   const tags: string[] = [];
   tags.push(gear.onsale ? "Onsale" : "Offsale");
   const manifestBody = yaml_stringify({
