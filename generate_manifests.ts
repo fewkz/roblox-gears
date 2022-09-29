@@ -22,9 +22,9 @@ type Gear = {
 emptyDirSync("gears");
 async function processGear(gear: Gear) {
   const hash = hashId(gear.id);
-  const snakedName = snakeCase(gear.name).replace("_s_", "s_");
+  const snakedName = snakeCase(gear.name).replace("_s_", "s_") + `_${hash}`;
   const firstLetter = snakedName.substring(0, 1);
-  const root = `gears/${firstLetter}/${snakedName}_${hash}`;
+  const root = `gears/${firstLetter}/${snakedName}`;
   const tags: string[] = [];
   tags.push(gear.onsale ? "Onsale" : "Offsale");
   const manifestBody = yaml_stringify({
