@@ -4,6 +4,7 @@ import { snakeCase } from "https://deno.land/x/case@2.1.1/mod.ts";
 import { emptyDirSync } from "https://deno.land/std@0.157.0/fs/mod.ts";
 import { assert } from "https://deno.land/std@0.157.0/_util/assert.ts";
 import { yellow } from "https://deno.land/std@0.158.0/fmt/colors.ts";
+import { transformAccents } from "https://deno.land/x/transform_accents@1.0.2/mod.ts";
 
 function hashId(id: number) {
   const hash = sha256(id.toFixed(), "utf8", "hex");
@@ -23,7 +24,7 @@ type Gear = {
 emptyDirSync("gears");
 async function processGear(gear: Gear) {
   const hash = hashId(gear.id);
-  const snakedName = snakeCase(gear.name).replace("_s_", "s_") + `_${hash}`;
+  const snakedName = transformAccents(snakeCase(gear.name)).replace("_s_", "s_") + `_${hash}`;
   const firstLetter = snakedName.substring(0, 1);
   const root = `gears/${firstLetter}/${snakedName}`;
   const tags: string[] = [];
