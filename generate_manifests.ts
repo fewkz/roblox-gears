@@ -64,20 +64,28 @@ async function getDetails(id: number) {
   return body;
 }
 
+function fixDescription(description: string) {
+  return description.replaceAll("\r\n", "\n");
+}
+
 async function getGearInfo(id: number) {
   const {
     Name: name,
     IsForSale: onsale,
-    Description: description,
+    Description: rawDescription,
     Created: createdString,
     Updated: updatedString,
   } = await getDetails(id);
   assert(typeof id == "number", "Gear details didn't provide a valid AssetId field");
   assert(typeof name == "string", "Gear details didn't provide a valid Name field");
-  assert(typeof description == "string", "Gear details didn't provide a valid Description field");
+  assert(
+    typeof rawDescription == "string",
+    "Gear details didn't provide a valid Description field",
+  );
   assert(typeof onsale == "boolean", "Gear details didn't have a valid IsForSale field");
   const created = new Date(createdString as string);
   const updated = new Date(updatedString as string);
+  const description = fixDescription(rawDescription);
 
   const gear: Gear = { id, name, onsale, description, created, updated };
   return gear;

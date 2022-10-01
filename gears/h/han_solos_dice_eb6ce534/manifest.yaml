@@ -2,6 +2,10 @@ id: 1748604797
 created: 2018-05-10T23:00:50.893Z
 updated: 2018-05-15T17:21:00.183Z
 name: Han Solo’s Dice
-description: "The lucky dice of Han Solo might bring you some luck as well, at least with speed.\r\nBe sure to watch Solo: A Star Wars Story, in theaters May 25!\r\n"
+description: >
+  The lucky dice of Han Solo might bring you some luck as well, at least with
+  speed.
+
+  Be sure to watch Solo: A Star Wars Story, in theaters May 25!
 tags:
   - Offsale

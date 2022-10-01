@@ -2,6 +2,10 @@ id: 58574445
 created: 2011-08-06T06:42:41.883Z
 updated: 2011-08-31T00:31:29.270Z
 name: ROBLOX Portable Game System (RPGS)
-description: "A 2d game in a 3d game?  You betcha!  Controls - : \"d\" is forward\r\n \"a\" is backward\r\n \"w\" is jump\r\n \"left click\" is shoot"
+description: |-
+  A 2d game in a 3d game?  You betcha!  Controls - : "d" is forward
+   "a" is backward
+   "w" is jump
+   "left click" is shoot
 tags:
   - Onsale

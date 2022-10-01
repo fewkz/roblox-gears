@@ -2,6 +2,11 @@ id: 271017937
 created: 2015-07-16T23:56:14.373Z
 updated: 2020-01-31T02:42:05.217Z
 name: 'Radiant Seahorse '
-description: "\"I only travel by seahorse these days. All the best people are doing it!\"\r\n\r\nUse the arrow keys or 'W', 'A', 'S', 'D' to steer your seahorse in whichever direction you'd like to go."
+description: >-
+  "I only travel by seahorse these days. All the best people are doing it!"
+
+
+  Use the arrow keys or 'W', 'A', 'S', 'D' to steer your seahorse in whichever
+  direction you'd like to go.
 tags:
   - Onsale

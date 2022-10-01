@@ -2,6 +2,7 @@ id: 602146440
 created: 2017-01-06T02:18:05.200Z
 updated: 2017-01-07T19:18:34.650Z
 name: Pizza Sword
-description: "Sometimes you cut the pizza, sometimes the pizza cuts you.\r\n"
+description: |
+  Sometimes you cut the pizza, sometimes the pizza cuts you.
 tags:
   - Onsale

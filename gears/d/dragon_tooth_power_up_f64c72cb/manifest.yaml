@@ -2,6 +2,9 @@ id: 467109039
 created: 2016-07-28T22:26:57.043Z
 updated: 2020-01-31T02:42:06.570Z
 name: Dragon Tooth Power Up
-description: "Hold the tooth to fly into the sky like Elliot.\r\n\r\nYou hold it, you jump to fly, and you'll come down slowly."
+description: |-
+  Hold the tooth to fly into the sky like Elliot.
+
+  You hold it, you jump to fly, and you'll come down slowly.
 tags:
   - Offsale
