@@ -3,6 +3,7 @@ import { sha256 } from "https://denopkg.com/chiefbiiko/sha256@v1.0.0/mod.ts";
 import { snakeCase } from "https://deno.land/x/case@2.1.1/mod.ts";
 import { emptyDirSync } from "https://deno.land/std@0.157.0/fs/mod.ts";
 import { assert } from "https://deno.land/std@0.157.0/_util/assert.ts";
+import { yellow } from "https://deno.land/std@0.158.0/fmt/colors.ts";
 
 function hashId(id: number) {
   const hash = sha256(id.toFixed(), "utf8", "hex");
@@ -57,11 +58,20 @@ interface Details {
   IsLimitedUnique: unknown;
 }
 
-async function getDetails(id: number) {
-  const res = await fetch(`https://economy.roproxy.com/v2/assets/${id}/details`);
-  const body: Details = await res.json();
-  console.log(body);
-  return body;
+await Deno.mkdir(".cache").catch(() => {});
+
+async function getDetails(id: number): Promise<Details> {
+  const cacheFile = `.cache/${id}.json`;
+  try {
+    const text = await Deno.readTextFile(cacheFile);
+    return JSON.parse(text);
+  } catch {
+    const res = await fetch(`https://economy.roproxy.com/v2/assets/${id}/details`);
+    const text = await res.text();
+    const data = JSON.parse(text);
+    await Deno.writeTextFile(cacheFile, text);
+    return data;
+  }
 }
 
 function fixDescription(description: string) {
@@ -94,6 +104,9 @@ async function getGearInfo(id: number) {
 import { chunk } from "https://deno.land/std@0.158.0/collections/chunk.ts";
 import ids from "./ids.json" assert { type: "json" };
 
-for (const idChunk of chunk(ids, 120)) {
+let count = 0;
+for (const idChunk of chunk(ids, 100)) {
   await Promise.all(idChunk.map((id) => getGearInfo(id).then((gear) => processGear(gear))));
+  count += idChunk.length;
+  console.log(`Processed ${yellow(count.toString())} of ${yellow(ids.length.toString())}`);
 }
